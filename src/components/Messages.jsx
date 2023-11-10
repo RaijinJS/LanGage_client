@@ -1,8 +1,8 @@
-function Messages () {
+function Messages ({message}) {
 
   return (
     <div className="Messages">
-
+      {message}
     </div>
   )
 }

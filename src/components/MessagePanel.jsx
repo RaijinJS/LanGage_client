@@ -1,38 +1,33 @@
 import { ReactComponent as LogoL } from '../assets/Logo L.svg'
+import { useState } from 'react';
+import { Messages } from './Messages.jsx'
 
 
-function MessagePanel() {
+function MessagePanel({ messages, setUserInput, reply }) {
+  const [input, setInput] = useState('');
 
+
+  function handleChange(event) {
+    setInput(event.target.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    setUserInput(input);
+    // make input appear as user message
+    setInput('');
+  }
 
   return (
     <div className="MessagePanel">
       <div className="messages-container">
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam facere neque molestias quo laboriosam officia ullam error. Adipisci perspiciatis sunt temporibus placeat eaque? Quas modi harum, beatae molestias saepe voluptate! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia aut quis voluptate quos iusto, possimus quam quae alias. Dolor ullam aliquid in delectus unde, ut labore velit! V<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam facere neque molestias quo laboriosam officia ullam error. Adipisci perspiciatis sunt temporibus placeat eaque? Quas modi harum, beatae molestias saepe voluptate! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia aut quis voluptate quos iusto, possimus quam quae alias. Dolor ullam aliquid in delectus unde, ut labore velit! Vel, ex eaque?</p>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam facere neque molestias quo laboriosam officia ullam error. Adipisci perspiciatis sunt temporibus placeat eaque? Quas modi harum, beatae molestias saepe voluptate! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia aut quis voluptate quos iusto, possimus quam quae alias. Dolor ullam aliquid in delectus unde, ut labore velit! Vel, ex eaque?</p>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam facere neque molestias quo laboriosam officia ullam error. Adipisci perspiciatis sunt temporibus placeat eaque? Quas modi harum, beatae molestias saepe voluptate! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia aut quis voluptate quos iusto, possimus quam quae alias. Dolor ullam aliquid in delectus unde, ut labore velit! Vel, ex eaque?</p>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam facere neque molestias quo laboriosam officia ullam error. Adipisci perspiciatis sunt temporibus placeat eaque? Quas modi harum, beatae molestias saepe voluptate! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia aut quis voluptate quos iusto, possimus quam quae alias. Dolor ullam aliquid in delectus unde, ut labore velit! Vel, ex eaque?</p>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam facere neque molestias quo laboriosam officia ullam error. Adipisci perspiciatis sunt temporibus placeat eaque? Quas modi harum, beatae molestias saepe voluptate! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia aut quis voluptate quos iusto, possimus quam quae alias. Dolor ullam aliquid in delectus unde, ut labore velit! Vel, ex eaque?</p>
-<p>Lorem, ipsum dolor sit a<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam facere neque molestias quo laboriosam officia ullam error. Adipisci perspiciatis sunt temporibus placeat eaque? Quas modi harum, beatae molestias saepe voluptate! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia aut quis voluptate quos iusto, possimus quam quae alias. Dolor ullam aliquid in delectus unde, ut labore velit! Vel, ex eaque?</p>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam facere neque molestias quo laboriosam officia ullam error. Adipisci perspiciatis sunt temporibus placeat eaque? Quas modi harum, beatae molestias saepe voluptate! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia aut quis voluptate quos iusto, possimus quam quae alias. Dolor ullam aliquid in delectus unde, ut labore velit! Vel, ex eaque?</p>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam facere neque molestias quo laboriosam officia ullam error. Adipisci perspiciatis sunt temporibus placeat eaque? Quas modi harum, beatae molestias saepe voluptate! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia aut quis voluptate quos iusto, possimus quam quae alias. Dolor ullam aliquid in delectus unde, ut labore velit! Vel, ex eaque?</p>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam facere neque molestias quo laboriosam officia ullam error. Adipisci perspiciatis sunt temporibus placeat eaque? Quas modi harum, beatae molestias saepe voluptate! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia aut quis voluptate quos iusto, possimus quam quae alias. Dolor ullam aliquid in delectus unde, ut labore velit! Vel, ex eaque?</p>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam facere neque molestias quo laboriosam officia ullam error. Adipisci perspiciatis sunt temporibus placeat eaque? Quas modi harum, beatae molestias saepe voluptate! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia aut quis voluptate quos iusto, possimus quam quae alias. Dolor ullam aliquid in delectus unde, ut labore velit! Vel, ex eaque?</p>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam facere neque molestias quo laboriosam officia ullam error. Adipisci perspiciatis sunt temporibus placeat eaque? Quas modi harum, beatae molestias saepe voluptate! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia aut quis voluptate quos iusto, possimus quam quae alias. Dolor ullam aliquid in delectus unde, ut labore velit! Vel, ex eaque?</p>
-met consectetur adipisicing elit. Quibusdam facere neque molestias quo laboriosam officia ullam error. Adipisci perspiciatis sunt temporibus placeat eaque? Quas modi harum, beatae molestias saepe voluptate! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia aut quis voluptate quos iusto, possimus quam quae alias. Dolor ullam aliquid in delectus unde, ut labore velit! Vel, ex eaque?</p>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam facere neque molestias quo laboriosam officia ullam error. Adipisci perspiciatis sunt temporibus placeat eaque? Quas modi harum, beatae molestias saepe voluptate! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia aut quis voluptate quos iusto, possimus quam quae alias. Dolor ullam aliquid in delectus unde, ut labore velit! Vel, ex eaque?</p>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam facere neque molestias quo laboriosam officia ullam error. Adipisci perspiciatis sunt temporibus placeat eaque? Quas modi harum, beatae molestias saepe voluptate! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia aut quis voluptate quos iusto, possimus quam quae alias. Dolor ullam aliquid in delectus unde, ut labore velit! Vel, ex eaque?</p>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam facere neque molestias quo laboriosam officia ullam error. Adipisci perspiciatis sunt temporibus placeat eaque? Quas modi harum, beatae molestias saepe voluptate! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia aut quis voluptate quos iusto, possimus quam quae alias. Dolor ullam aliquid in delectus unde, ut labore velit! Vel, ex eaque?</p>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam facere neque molestias quo laboriosam officia ullam error. Adipisci perspiciatis sunt temporibus placeat eaque? Quas modi harum, beatae molestias saepe voluptate! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia aut quis voluptate quos iusto, possimus quam quae alias. Dolor ullam aliquid in delectus unde, ut labore velit! Vel, ex eaque?</p>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam facere neque molestias quo laboriosam officia ullam error. Adipisci perspiciatis sunt temporibus placeat eaque? Quas modi harum, beatae molestias saepe voluptate! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia aut quis voluptate quos iusto, possimus quam quae alias. Dolor ullam aliquid in delectus unde, ut labore velit! Vel, ex eaque?</p>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam facere neque molestias quo laboriosam officia ullam error. Adipisci perspiciatis sunt temporibus placeat eaque? Quas modi harum, beatae molestias saepe voluptate! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia aut quis voluptate quos iusto, possimus quam quae alias. Dolor ullam aliquid in delectus unde, ut labore velit! Vel, ex eaque?</p>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam facere neque molestias quo laboriosam officia ullam error. Adipisci perspiciatis sunt temporibus placeat eaque? Quas modi harum, beatae molestias saepe voluptate! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia aut quis voluptate quos iusto, possimus quam quae alias. Dolor ullam aliquid in delectus unde, ut labore velit! Vel, ex eaque?</p>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam facere neque molestias quo laboriosam officia ullam error. Adipisci perspiciatis sunt temporibus placeat eaque? Quas modi harum, beatae molestias saepe voluptate! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia aut quis voluptate quos iusto, possimus quam quae alias. Dolor ullam aliquid in delectus unde, ut labore velit! Vel, ex eaque?</p>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam facere neque molestias quo laboriosam officia ullam error. Adipisci perspiciatis sunt temporibus placeat eaque? Quas modi harum, beatae molestias saepe voluptate! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia aut quis voluptate quos iusto, possimus quam quae alias. Dolor ullam aliquid in delectus unde, ut labore velit! Vel, ex eaque?</p>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam facere neque molestias quo laboriosam officia ullam error. Adipisci perspiciatis sunt temporibus placeat eaque? Quas modi harum, beatae molestias saepe voluptate! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia aut quis voluptate quos iusto, possimus quam quae alias. Dolor ullam aliquid in delectus unde, ut labore velit! Vel, ex eaque?</p>
-el, ex eaque?</p>
+        {messages.map((message) => {
+        return <Messages key={message._id} message={message} />
+        })
+        }
       </div>
-      <form className="userInput">
-      <input type="textarea" className="inputField" rows={2} />
+      <form className="userInput" onSubmit={handleSubmit}>
+<input type="textarea" name="inputField" className="inputField" value={input} onChange={ handleChange } required placeholder= "Type here..." rows={2} />
       <button type="submit" className='send-button'>
         <LogoL title= 'Send' className='buttonImg'/>
       </button>
