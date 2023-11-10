@@ -1,6 +1,6 @@
 import { ReactComponent as LogoL } from '../assets/Logo L.svg'
 import { useState } from 'react';
-import { Messages } from './Messages.jsx'
+import Messages from './Messages.jsx'
 
 
 function MessagePanel({ messages, setUserInput, reply }) {

@@ -15,16 +15,12 @@
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-}
-
-.message {
-  max-width: 60%;
-  color: rgb(102, 102, 102);
-  margin-bottom: 10px;
-  padding: 8px;
-  border-radius: 10px;
-  box-sizing: border-box;
-  clear: both;
+  background-color: rgb(253, 175, 78);
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 0;
 }
 
 .userInput {
@@ -32,13 +28,9 @@
   flex-direction: row;
   flex: 1;
   padding-top: 0.3em;
-  box-shadow: inset 0px 7px 7px -7px rgb(168, 42, 178);  /* margin-top: auto; */
+  box-shadow: inset 0px 7px 7px -7px rgb(168, 42, 178);
 
 }
-
-/* orange: rgb(253, 175, 78),
-pink: rgb(252, 28, 105),
-purple: rgb(168, 42, 178) */
 
 input {
   height: 100%;

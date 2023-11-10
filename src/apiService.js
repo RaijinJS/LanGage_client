@@ -5,6 +5,7 @@ async function getPrevMessages(conversationID) {
   try {
     const response = await fetch(`${url}/messages/${conversationID}`);
     const messages = await response.json();
+    console.log('api server line 8:', messages)
     return messages;
   } catch (e) {
     console.log(e);

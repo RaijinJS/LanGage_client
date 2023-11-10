@@ -1,0 +1,33 @@
+.Messages {
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  max-width: 80%;
+  border-radius: 10px;
+  padding: 0.5em;
+  margin-bottom: 1%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5em;
+}
+
+/* orange: rgb(253, 175, 78),
+pink: rgb(252, 28, 105),
+purple: rgb(168, 42, 178) */
+
+.userM {
+  align-self: flex-end;
+  background-color: rgb(168, 42, 178);
+  color: white;
+}
+
+/* .UserM>.messageContent {
+  text-align: right;
+} */
+
+.tutorM {
+  align-self: flex-start;
+  background-color: rgb(252, 28, 105);
+  color: white;
+}
