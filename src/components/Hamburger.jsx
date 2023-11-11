@@ -2,11 +2,12 @@ function Hamburger ({ conversation, setConversation }) {
 
   return (
     <div className="Hamburger">
-      {/* <ul className="hamList">
+      <ul className="hamList">
         <li className="hamListItem">
-        Lesson {conversation}
+          Lesson {conversation}
         </li>
-      </ul> */}
+        <li className="newConvoButton">Start New Lesson</li>
+      </ul>
     </div>
   )
 }
