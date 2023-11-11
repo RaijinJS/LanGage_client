@@ -34,7 +34,6 @@ function MessagePanel({ messages, setMessages, setUserInput, reply, setReply }) 
       const response = await gptReply(inputWithProperties);
       setReply(response);
       setMessages(prevMessages => [...prevMessages, response]);
-      console.log(reply);
     } catch (e) {
       console.log(e);
     }

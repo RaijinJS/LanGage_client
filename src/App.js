@@ -8,6 +8,8 @@ import FeedbackPanel from './components/FeedbackPanel.jsx'
 import MessagePanel from './components/MessagePanel.jsx'
 import { gptReply, getPrevMessages } from './apiService.js';
 import { useState, useEffect } from 'react';
+import { splitReply } from './util.js';
+
 
 function App() {
   const [conversation, setConversation] = useState(1);
@@ -32,7 +34,7 @@ function App() {
       <Nav/>
       </nav>
       <main>
-        <FeedbackPanel reply={ reply } />
+        <FeedbackPanel feedback={ reply.content ? splitReply(reply.content): ''} />
         <MessagePanel messages={ messages } setMessages={setMessages} setUserInput={ setUserInput } reply={ reply } setReply={setReply}/>
       </main>
     </div>
