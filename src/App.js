@@ -12,7 +12,7 @@ import { useState, useEffect } from 'react';
 function App() {
   const [conversation, setConversation] = useState(1);
   const [messages, setMessages] = useState([]);
-  const [userInput, setUserInput] = useState('');
+  const [userInput, setUserInput] = useState({});
   const [reply, setReply] = useState({});
 
   useEffect(
@@ -21,21 +21,10 @@ function App() {
         if (!data) {
           setMessages([])
         } else {
-          console.log(data)
           setMessages(data);
         }
         }).catch((e) => console.log(e))
     }, [conversation]);
-
-
-  useEffect(
-    () => {
-      if (userInput !== '') {
-        gptReply(userInput).then((data) => {
-          setReply(data);
-          }).catch((e) => console.log(e))
-      }
-    }, [userInput]);
 
   return (
     <div className="App">
@@ -43,8 +32,8 @@ function App() {
       <Nav/>
       </nav>
       <main>
-      <FeedbackPanel />
-        <MessagePanel messages={ messages } setUserInput={ setUserInput } reply={ reply } />
+        <FeedbackPanel reply={ reply } />
+        <MessagePanel messages={ messages } setMessages={setMessages} setUserInput={ setUserInput } reply={ reply } setReply={setReply}/>
       </main>
     </div>
   );

@@ -1,33 +1,56 @@
 import { ReactComponent as LogoL } from '../assets/Logo L.svg'
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Messages from './Messages.jsx'
+import { gptReply, postUserMessage } from '../apiService.js';
 
 
-function MessagePanel({ messages, setUserInput, reply }) {
+function MessagePanel({ messages, setMessages, setUserInput, reply, setReply }) {
   const [input, setInput] = useState('');
 
+  const messageEl = useRef(null);
 
-  function handleChange(event) {
-    setInput(event.target.value);
+  // apprently Listener for synchronous DOMNodeInserted event is being deprecated? Working but this will need adjustment...
+  useEffect(() => {
+      if (messageEl) {
+        messageEl.current.addEventListener('DOMNodeInserted', event => {
+          const { currentTarget: target } = event;
+          target.scroll({ top: target.scrollHeight, behavior: 'smooth' });
+        });
+      }
+    }, [])
+
+    function handleChange(event) {
+      setInput(event.target.value);
+    }
+
+  async function handleSubmit(event) {
+    try {
+      event.preventDefault();
+      const inputWithProperties = { role: "user", content: input, conversationID: 1 };
+      setUserInput(inputWithProperties);
+      setInput('');
+      const newMessage = await postUserMessage(inputWithProperties);
+      setMessages(prevMessages => [...prevMessages, newMessage]);
+      const response = await gptReply(inputWithProperties);
+      setReply(response);
+      setMessages(prevMessages => [...prevMessages, response]);
+      console.log(reply);
+    } catch (e) {
+      console.log(e);
+    }
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    setUserInput(input);
-    // make input appear as user message
-    setInput('');
-  }
 
   return (
     <div className="MessagePanel">
-      <div className="messages-container">
+      <div className="messages-container" ref={messageEl}>
         {messages.map((message) => {
         return <Messages key={message._id} message={message} />
         })
         }
       </div>
       <form className="userInput" onSubmit={handleSubmit}>
-<input type="textarea" name="inputField" className="inputField" value={input} onChange={ handleChange } required placeholder= "Type here..." rows={2} />
+      <input type="textarea" name="inputField" className="inputField" value={input} onChange={ handleChange } required placeholder= "Type here..." rows={2} />
       <button type="submit" className='send-button'>
         <LogoL title= 'Send' className='buttonImg'/>
       </button>
