@@ -9,7 +9,7 @@ async function getPrevMessages(conversationID) {
   } catch (e) {
     console.log(e);
   }
-};
+}
 
 async function gptReply(userInput) {
   try {
@@ -23,7 +23,7 @@ async function gptReply(userInput) {
   } catch (e) {
     console.log(e);
   }
-};
+}
 
 async function postUserMessage(userInput) {
   try {
@@ -37,6 +37,6 @@ async function postUserMessage(userInput) {
   } catch (e) {
     console.log(e);
   }
-};
+}
 
 export { gptReply, getPrevMessages, postUserMessage }

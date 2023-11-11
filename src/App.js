@@ -7,7 +7,7 @@ import './components/Hamburger.css';
 import Nav from './components/Nav.jsx'
 import FeedbackPanel from './components/FeedbackPanel.jsx'
 import MessagePanel from './components/MessagePanel.jsx'
-import { gptReply, getPrevMessages } from './apiService.js';
+import { getPrevMessages } from './apiService.js';
 import { useState, useEffect } from 'react';
 import { splitReply } from './util.js';
 
