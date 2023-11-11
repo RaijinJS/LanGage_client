@@ -6,6 +6,7 @@ function FeedbackPanel({ feedback }) {
   return (
     <div className="FeedbackPanel">
       <div className="feedbackBox">
+        <p className="feedbackHeader">Feedback</p>
         <ul className="feedbackList">
           {!feedback[1] ?
             <li>Keep up the good work!</li> :

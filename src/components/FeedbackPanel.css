@@ -16,7 +16,7 @@
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   color: white;
-  font-family: 'Chalkboard', 'Chalk', sans-serif;
+  font-family: 'Chalkboard', sans-serif;
   font-size: 1.5em;
   overflow-y: scroll;
 }
@@ -44,15 +44,25 @@
     padding-bottom: 1%;
 }
 
+.feedbackHeader {
+  text-align: center;
+  text-decoration:underline;
+}
+
+.feedbackList {
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 0.1em;
+}
 
 @font-face {
   font-family: 'Chalkboard';
   src: local('Chalkboard'), url('../fonts/ApplestormChalkboard-PdPP.otf') format('opentype');
 }
 
-@font-face {
+/* @font-face {
   font-family: 'Chalk';
   src: local('Chalk'), url('../fonts/Chalkduster\ 400.ttf') format('truetype');
-}
+} */
 
 
