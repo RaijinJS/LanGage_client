@@ -49,4 +49,19 @@ async function getConvoList() {
   }
 }
 
-export { gptReply, getPrevMessages, postUserMessage, getConvoList }
+async function getWordTranslation(wordToTranslate) {
+  try {
+    const wordObj = {word: wordToTranslate}
+    const translation = await fetch(`${url}/translate/word`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(wordObj)
+    });
+    const reply = await translation.json();
+    return reply;
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+export { gptReply, getPrevMessages, postUserMessage, getConvoList, getWordTranslation }

@@ -23,3 +23,25 @@
   background-color: hsl(33, 98%, 55%);
   color: white;
 }
+
+.word {
+  cursor: pointer;
+}
+
+.translationTitle {
+  margin-bottom: 10%;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: solid;
+  border-color: white;
+}
+
+.translatedText {
+  font-size: 1.5em;
+}
+
+.translationPopUp {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}

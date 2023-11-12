@@ -24,9 +24,9 @@ function FeedbackPanel({ feedback, loading, messages, conversation, conversation
   return (
     <div className="FeedbackPanel">
       <div className="feedbackBox">
-        <p className="feedbackHeader">Feedback Board</p>
+        <h1 className="feedbackHeader">Feedback Board</h1>
         <ul className="feedbackList">
-          {!feedback[1] === 0 ?
+          {!feedback[1] || feedback[1].length === 0 ?
             <li>{messages.length === 0 ? '': 'Keep up the good work!'}</li> :
             feedback[1].map((str) => {
               return <li key={feedback[1].indexOf(str)}>{str}</li>

@@ -4,6 +4,7 @@ import './components/MessagePanel.css';
 import './components/FeedbackPanel.css';
 import './components/Messages.css';
 import './components/Hamburger.css';
+import './components/popups.css';
 import Nav from './components/Nav.jsx'
 import FeedbackPanel from './components/FeedbackPanel.jsx'
 import MessagePanel from './components/MessagePanel.jsx'
