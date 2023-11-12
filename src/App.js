@@ -17,6 +17,10 @@ function App() {
   const [messages, setMessages] = useState([]);
   const [userInput, setUserInput] = useState({});
   const [reply, setReply] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [conversationList, setConversationList] = useState([]);
+
+
 
   useEffect(
     () => {
@@ -32,11 +36,11 @@ function App() {
   return (
     <div className="App">
       <nav>
-      <Nav conversation={conversation} setConversation={ setConversation }/>
+      <Nav conversation={conversation} setConversation={setConversation} conversationList={conversationList} setConversationList={setConversationList}/>
       </nav>
       <main>
-        <FeedbackPanel feedback={ reply.content ? splitReply(reply.content): '' } />
-        <MessagePanel messages={ messages } setMessages={ setMessages } setUserInput={ setUserInput } reply={ reply } setReply={ setReply }/>
+        <FeedbackPanel messages={messages} loading={loading} conversation={conversation} conversationList={conversationList} feedback={reply.content ? splitReply(reply.content): ''} />
+        <MessagePanel loading={loading} setLoading={setLoading} messages={messages} setMessages={setMessages} setUserInput={setUserInput} setReply={setReply} conversation={conversation} />
       </main>
     </div>
   );

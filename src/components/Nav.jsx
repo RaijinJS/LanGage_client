@@ -3,7 +3,7 @@ import Hamburger from './Hamburger.jsx';
 import Popup from 'reactjs-popup';
 import { useState } from 'react';
 
-function Nav({ conversation, setConversation }) {
+function Nav({ conversation, setConversation, conversationList, setConversationList }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleOpen = () => {
@@ -39,7 +39,7 @@ function Nav({ conversation, setConversation }) {
       >
         {close => (
           <div className='popUpMenu'>
-            <Hamburger conversation={conversation} setConversation={setConversation} />
+            <Hamburger conversation={conversation} setConversation={setConversation} conversationList={conversationList} setConversationList={setConversationList} />
             <div className='closeButtonContainer'>
               <button className='closeButton' onClick= {() => close()}>Close</button>
             </div>

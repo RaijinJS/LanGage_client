@@ -30,15 +30,17 @@
   border-radius: 6px;
 }
 
-.tutorImg {
+.tutor {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.tutor {
+.tutorImg {
     width: 100%;
     max-height: 10em;
+    max-width: 138.448px;
+    min-width: 138.448px;
     padding-left: 3%;
     padding-top: 1%;
     padding-bottom: 1%;
@@ -59,10 +61,5 @@
   font-family: 'Chalkboard';
   src: local('Chalkboard'), url('../fonts/ApplestormChalkboard-PdPP.otf') format('opentype');
 }
-
-/* @font-face {
-  font-family: 'Chalk';
-  src: local('Chalk'), url('../fonts/Chalkduster\ 400.ttf') format('truetype');
-} */
 
 

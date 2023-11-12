@@ -39,4 +39,14 @@ async function postUserMessage(userInput) {
   }
 }
 
-export { gptReply, getPrevMessages, postUserMessage }
+async function getConvoList() {
+  try {
+    const response = await fetch(`${url}/messages/conversations`);
+    const list = await response.json();
+    return list;
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+export { gptReply, getPrevMessages, postUserMessage, getConvoList }

@@ -4,8 +4,9 @@ import Messages from './Messages.jsx'
 import { gptReply, postUserMessage } from '../apiService.js';
 
 
-function MessagePanel({ messages, setMessages, setUserInput, reply, setReply }) {
+function MessagePanel({ messages, setMessages, setUserInput, setReply, conversation, loading, setLoading }) {
   const [input, setInput] = useState('');
+
 
   const messageEl = useRef(null);
 
@@ -26,14 +27,16 @@ function MessagePanel({ messages, setMessages, setUserInput, reply, setReply }) 
   async function handleSubmit(event) {
     try {
       event.preventDefault();
-      const inputWithProperties = { role: "user", content: input, conversationID: 1 };
+      const inputWithProperties = { role: "user", content: input, conversationID: conversation };
       setUserInput(inputWithProperties);
       setInput('');
+      setLoading(true);
       const newMessage = await postUserMessage(inputWithProperties);
       setMessages(prevMessages => [...prevMessages, newMessage]);
       const response = await gptReply(inputWithProperties);
       setReply(response);
       setMessages(prevMessages => [...prevMessages, response]);
+      setLoading(false);
     } catch (e) {
       console.log(e);
     }
@@ -49,7 +52,9 @@ function MessagePanel({ messages, setMessages, setUserInput, reply, setReply }) 
         }
       </div>
       <form className="userInput" onSubmit={handleSubmit}>
-      <input type="textarea" name="inputField" className="inputField" value={input} onChange={ handleChange } required placeholder= "Type here..." rows={2} />
+
+        <input type="text" name="inputField" className="inputField" value={input} onChange={handleChange} required placeholder={loading ? "Please wait..." : "Type here..." } disabled={loading} />
+
       <button type="submit" className='send-button'>
         <LogoL title= 'Send' className='buttonImg'/>
       </button>
