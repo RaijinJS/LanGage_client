@@ -15,6 +15,7 @@
   right: 2.5em;
   border-radius: 6px;
   overflow-y: scroll;
+  max-height: 600px;
 }
 
 .popUpMenu::-webkit-scrollbar {
