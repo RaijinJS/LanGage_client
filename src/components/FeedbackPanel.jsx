@@ -13,7 +13,6 @@ function FeedbackPanel({ feedback, loading, messages, conversation, conversation
 
   useEffect(
     () => {
-      console.log(feedback[1])
       if (conversation === conversationList.length+1 && messages.length === 0) {
       setMascot(()=>RobotBook)}
       else if (!feedback[1] || feedback[1].length === 0) { setMascot(RobotLetter) }
