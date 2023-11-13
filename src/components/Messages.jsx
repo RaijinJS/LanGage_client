@@ -7,18 +7,17 @@ function Messages({
   message,
   handleUserMessageClick }) {
 
-  const [selectedWord, setSelectedWord] = useState(null);
-  const [wordTranslation, setWordTranslation] = useState(null);
-  const [messageTranslation, setMessageTranslation] = useState(null);
+  const [selectedText, setSelectedText] = useState(null);
+  const [textTranslation, setTextTranslation] = useState(null);
   const messageContent = splitReply(message.content)[0];
 
   function handleWordClick(word) {
     const cleanedWord = word.replace(/[^\w\sÀ-ÖØ-öø-ÿ]/g, "");
-    setSelectedWord(cleanedWord);
+    setSelectedText(cleanedWord);
     getWordTranslation(word)
       .then((translation) => {
         const cleanedTranslation = translation.replace(/[^\w\sÀ-ÖØ-öø-ÿ]/g, "");
-        setWordTranslation(cleanedTranslation);
+        setTextTranslation(cleanedTranslation);
       })
       .catch((error) => {
         console.error("Error fetching word translation:", error);
@@ -26,9 +25,10 @@ function Messages({
   }
 
   function handleTutorMessageClick(messageToTranslate) {
+    setSelectedText(messageToTranslate);
     getWordTranslation(messageToTranslate)
       .then((translation) => {
-        setMessageTranslation(translation);
+        setTextTranslation(translation);
       })
       .catch((error) => {
         console.error("Error fetching message translation:", error);
@@ -53,7 +53,10 @@ function Messages({
         </p>
         {message.role === "user" ? (
           <div className="messageFunctions userF">
-            <button className="functionDesc" onClick={()=> handleUserMessageClick(message.reply)}>
+            <button
+              className="functionDesc"
+              onClick={() => handleUserMessageClick(message.reply)}
+            >
               Feedback
             </button>
           </div>
@@ -62,20 +65,23 @@ function Messages({
             className="messageFunctions tutorF"
             onClick={() => handleTutorMessageClick(messageContent)}
           >
-              <button className="functionDesc">Translate message</button>
-              {messageTranslation && <div className="messageTranslation">{ messageTranslation }</div>}
+            <button className="functionDesc">Translate message</button>
           </div>
         )}
       </div>
 
-      <Popup open={selectedWord !== null} onClose={() => setSelectedWord(null)}>
+      <Popup open={selectedText !== null} onClose={() => setSelectedText(null)}>
         <div className="translationPopUp popUpMenu">
-          <h2 className="translationTitle">Translation of "{selectedWord}"</h2>
-          <p className="translatedText">{wordTranslation}</p>
+          <h2 className="translationTitle">
+            {selectedText !== null && selectedText.length > 10
+              ? "Translation"
+              : "Translation of "+selectedText}
+          </h2>
+          <p className="translatedText">{textTranslation}</p>
           <div className="closeButtonContainer">
             <button
               className="closeButton"
-              onClick={() => setSelectedWord(null)}
+              onClick={() => setSelectedText(null)}
             >
               Close
             </button>
