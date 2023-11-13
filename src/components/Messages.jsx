@@ -23,7 +23,7 @@ function Messages({ message, setReply}) {
   };
 
   function handleUserMessageClick() {
-    setReply(message)
+    // setReply(message)
   };
 
   function handleTutorMessageClick(messageToTranslate) {
@@ -49,7 +49,7 @@ function Messages({ message, setReply}) {
         </p>
         {message.role === "user" ?
         <div className='messageFunctions userF' onClick={handleUserMessageClick()}><button className='functionDesc'>See feedback</button></div> :
-        <div className='messageFunctions tutorF' onClick={() => handleTutorMessageClick(messageContent[0])}><p className='functionDesc'>Translate message</p></div>}
+        <div className='messageFunctions tutorF' onClick={() => handleTutorMessageClick(messageContent[0])}><button className='functionDesc'>Translate message</button></div>}
       </div>
 
       <Popup  open={selectedWord !== null} onClose={() => setSelectedWord(null)}>

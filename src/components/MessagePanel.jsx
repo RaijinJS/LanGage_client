@@ -32,7 +32,7 @@ function MessagePanel({ messages, setMessages, setReply, conversation, loading, 
       setLoading(true);
       const newMessage = await postUserMessage(inputWithProperties);
       setMessages(prevMessages => [...prevMessages, newMessage]);
-      const response = await gptReply(inputWithProperties);
+      const response = await gptReply(newMessage);
       setReply(response);
       setMessages(prevMessages => [...prevMessages, response]);
       setLoading(false);

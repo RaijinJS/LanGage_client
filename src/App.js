@@ -40,6 +40,7 @@ function App() {
       </nav>
       <main>
         <FeedbackPanel messages={messages} loading={loading} conversation={conversation} conversationList={conversationList} feedback={reply.content ? splitReply(reply.content): ''} />
+        {/* <FeedbackPanel messages={messages} loading={loading} conversation={conversation} conversationList={conversationList} reply={reply} /> */}
         <MessagePanel loading={loading} setLoading={setLoading} messages={messages} setMessages={setMessages} setReply={setReply} conversation={conversation} />
       </main>
     </div>

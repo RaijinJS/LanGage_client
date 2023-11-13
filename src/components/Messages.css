@@ -73,10 +73,13 @@
 
 .functionDesc {
   font-size: small;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: white;
 }
 
 .functionDesc:hover {
   font-size: small;
   text-decoration: underline;
-  cursor:pointer;
 }
