@@ -52,3 +52,31 @@
       left: 1%
   }
 }
+
+.messageFunctions {
+  text-align: center;
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
+  transition: max-height 1s ease 0.5s;
+}
+
+.message:hover>.messageFunctions {
+  max-width: none;
+  max-height: 1000em;
+}
+
+.message:hover>.messageContent {
+  transition: margin 1s ease 0.5s;
+  margin-bottom: 0.5em;
+}
+
+.functionDesc {
+  font-size: small;
+}
+
+.functionDesc:hover {
+  font-size: small;
+  text-decoration: underline;
+  cursor:pointer;
+}

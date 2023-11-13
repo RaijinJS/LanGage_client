@@ -3,23 +3,38 @@ import { splitReply } from '../util.js';
 import { getWordTranslation } from '../apiService.js';
 import Popup from 'reactjs-popup';
 
-function Messages({ message }) {
+function Messages({ message, setReply}) {
   const [selectedWord, setSelectedWord] = useState(null);
-  const [translation, setTranslation] = useState(null);
+  const [wordTranslation, setWordTranslation] = useState(null);
+  const [messageTranslation, setMessageTranslation] = useState(null);
   const messageContent = splitReply(message.content);
 
-  const handleWordClick = (word) => {
+  function handleWordClick (word) {
     const cleanedWord = word.replace(/[^\w\sÀ-ÖØ-öø-ÿ]/g, '')
     setSelectedWord(cleanedWord);
     getWordTranslation(word)
       .then((translation) => {
         const cleanedTranslation = translation.replace(/[^\w\sÀ-ÖØ-öø-ÿ]/g, '')
-        console.log(translation)
-        setTranslation(cleanedTranslation);
+        setWordTranslation(cleanedTranslation);
       })
       .catch((error) => {
-        console.error('Error fetching translation:', error);
+        console.error('Error fetching word translation:', error);
       });
+  };
+
+  function handleUserMessageClick() {
+    setReply(message)
+  };
+
+  function handleTutorMessageClick(messageToTranslate) {
+  getWordTranslation(messageToTranslate)
+    .then((translation) => {
+      console.log(translation)
+      setMessageTranslation(translation);
+    })
+    .catch((error) => {
+      console.error('Error fetching message translation:', error);
+    });
   };
 
   return (
@@ -32,12 +47,15 @@ function Messages({ message }) {
             </span>
           ))}
         </p>
+        {message.role === "user" ?
+        <div className='messageFunctions userF' onClick={handleUserMessageClick()}><button className='functionDesc'>See feedback</button></div> :
+        <div className='messageFunctions tutorF' onClick={() => handleTutorMessageClick(messageContent[0])}><p className='functionDesc'>Translate message</p></div>}
       </div>
 
       <Popup  open={selectedWord !== null} onClose={() => setSelectedWord(null)}>
         <div className="translationPopUp popUpMenu">
           <h2 className='translationTitle'>Translation of "{selectedWord}"</h2>
-          <p className='translatedText'>{translation}</p>
+          <p className='translatedText'>{wordTranslation}</p>
           <div className='closeButtonContainer'>
             <button className='closeButton' onClick={() => setSelectedWord(null)}>Close</button>
           </div>

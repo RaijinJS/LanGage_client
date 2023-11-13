@@ -46,7 +46,7 @@ function MessagePanel({ messages, setMessages, setReply, conversation, loading, 
     <div className="MessagePanel">
       <div className="messages-container" ref={messageEl}>
         {messages.map((message) => {
-        return <Messages key={message._id} message={message} />
+        return <Messages key={message._id} message={message} setReply={setReply} />
         })
         }
       </div>

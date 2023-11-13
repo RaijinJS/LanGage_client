@@ -29,7 +29,7 @@
 }
 
 .hamMenuHeader {
-    margin-bottom: 10%;
+    margin-bottom: 15%;
     font-size: 1.5em;
     font-weight: bold;
     text-align: center;
@@ -38,6 +38,6 @@
 }
 
 #newConvo {
-    margin-top: 20%;
+    margin-bottom: 10%;
     border: none;
 }
