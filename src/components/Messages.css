@@ -58,7 +58,7 @@
   max-height: 0;
   max-width: 0;
   overflow: hidden;
-  transition: max-height 1s ease 0.5s;
+  transition: max-height 0.5s ease 0.5s;
 }
 
 .message:hover>.messageFunctions {
@@ -67,7 +67,7 @@
 }
 
 .message:hover>.messageContent {
-  transition: margin 1s ease 0.5s;
+  transition: margin 0.5s ease 0.5s;
   margin-bottom: 0.5em;
 }
 

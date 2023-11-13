@@ -2,9 +2,10 @@ import { ReactComponent as LogoL } from '../assets/Logo L.svg'
 import { useState, useEffect, useRef } from 'react';
 import Messages from './Messages.jsx'
 import { gptReply, postUserMessage } from '../apiService.js';
+import { splitReply } from "../util.js";
 
 
-function MessagePanel({ messages, setMessages, setReply, conversation, loading, setLoading }) {
+function MessagePanel({ messages, setMessages, setReply, conversation, loading, setLoading, handleUserMessageClick }) {
   const [input, setInput] = useState('');
 
 
@@ -33,7 +34,11 @@ function MessagePanel({ messages, setMessages, setReply, conversation, loading, 
       const newMessage = await postUserMessage(inputWithProperties);
       setMessages(prevMessages => [...prevMessages, newMessage]);
       const response = await gptReply(newMessage);
-      setReply(response);
+      if (response.content.includes('(')) {
+        const feedback = splitReply(response.content)[1];
+        console.log(feedback)
+        setReply(feedback);
+      }
       setMessages(prevMessages => [...prevMessages, response]);
       setLoading(false);
     } catch (e) {
@@ -46,7 +51,14 @@ function MessagePanel({ messages, setMessages, setReply, conversation, loading, 
     <div className="MessagePanel">
       <div className="messages-container" ref={messageEl}>
         {messages.map((message) => {
-        return <Messages key={message._id} message={message} setReply={setReply} />
+        return (
+          <Messages
+            key={message._id}
+            message={message}
+            setReply={setReply}
+            handleUserMessageClick={handleUserMessageClick}
+          />
+        );
         })
         }
       </div>

@@ -3,12 +3,12 @@ function splitReply(gptRep) {
     return ['', '']
   }
   const regex = /\(([^)]+)\)/g;
-  const extractedContent = [];
+  const feedback = [];
   const stringWithoutParentheses = gptRep.replace(regex, (match, group) => {
-  extractedContent.push(group);
+  feedback.push(group);
   return '';
 });
-  let res = [stringWithoutParentheses, extractedContent];
+  let res = [stringWithoutParentheses, feedback];
   return res;
 }
 
