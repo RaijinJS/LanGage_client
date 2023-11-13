@@ -34,7 +34,7 @@ function App() {
 
   function handleUserMessageClick(message) {
     console.log(message)
-    if (message.includes("(")) {
+    if (message && message.includes("(")) {
       const feedback = splitReply(message)[1];
       console.log(feedback);
       setReply(feedback);
