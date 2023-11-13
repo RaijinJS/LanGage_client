@@ -16,7 +16,6 @@ import { splitReply } from './util.js';
 function App() {
   const [conversation, setConversation] = useState(1);
   const [messages, setMessages] = useState([]);
-  const [userInput, setUserInput] = useState({});
   const [reply, setReply] = useState({});
   const [loading, setLoading] = useState(false);
   const [conversationList, setConversationList] = useState([]);
@@ -41,7 +40,7 @@ function App() {
       </nav>
       <main>
         <FeedbackPanel messages={messages} loading={loading} conversation={conversation} conversationList={conversationList} feedback={reply.content ? splitReply(reply.content): ''} />
-        <MessagePanel loading={loading} setLoading={setLoading} messages={messages} setMessages={setMessages} setUserInput={setUserInput} setReply={setReply} conversation={conversation} />
+        <MessagePanel loading={loading} setLoading={setLoading} messages={messages} setMessages={setMessages} setReply={setReply} conversation={conversation} />
       </main>
     </div>
   );

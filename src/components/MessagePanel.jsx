@@ -4,7 +4,7 @@ import Messages from './Messages.jsx'
 import { gptReply, postUserMessage } from '../apiService.js';
 
 
-function MessagePanel({ messages, setMessages, setUserInput, setReply, conversation, loading, setLoading }) {
+function MessagePanel({ messages, setMessages, setReply, conversation, loading, setLoading }) {
   const [input, setInput] = useState('');
 
 
@@ -28,7 +28,6 @@ function MessagePanel({ messages, setMessages, setUserInput, setReply, conversat
     try {
       event.preventDefault();
       const inputWithProperties = { role: "user", content: input, conversationID: conversation };
-      setUserInput(inputWithProperties);
       setInput('');
       setLoading(true);
       const newMessage = await postUserMessage(inputWithProperties);

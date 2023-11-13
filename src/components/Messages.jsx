@@ -9,11 +9,11 @@ function Messages({ message }) {
   const messageContent = splitReply(message.content);
 
   const handleWordClick = (word) => {
-    const cleanedWord = word.replace(/[^\w\s]/g, '')
+    const cleanedWord = word.replace(/[^\w\sÀ-ÖØ-öø-ÿ]/g, '')
     setSelectedWord(cleanedWord);
     getWordTranslation(word)
       .then((translation) => {
-        const cleanedTranslation = translation.replace(/[^\w\s]/g, '')
+        const cleanedTranslation = translation.replace(/[^\w\sÀ-ÖØ-öø-ÿ]/g, '')
         console.log(translation)
         setTranslation(cleanedTranslation);
       })
