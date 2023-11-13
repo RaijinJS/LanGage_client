@@ -10,7 +10,7 @@ function Messages({
   const [selectedWord, setSelectedWord] = useState(null);
   const [wordTranslation, setWordTranslation] = useState(null);
   const [messageTranslation, setMessageTranslation] = useState(null);
-  const messageContent = splitReply(message.content);
+  const messageContent = splitReply(message.content)[0];
 
   function handleWordClick(word) {
     const cleanedWord = word.replace(/[^\w\sÀ-ÖØ-öø-ÿ]/g, "");
@@ -25,14 +25,9 @@ function Messages({
       });
   }
 
-  // function handleUserMessageClick() {
-  //   // setReply(message)
-  // };
-
   function handleTutorMessageClick(messageToTranslate) {
     getWordTranslation(messageToTranslate)
       .then((translation) => {
-        console.log(translation);
         setMessageTranslation(translation);
       })
       .catch((error) => {
@@ -46,7 +41,7 @@ function Messages({
         className={message.role === "user" ? "userM message" : "tutorM message"}
       >
         <p className="messageContent">
-          {messageContent[0].split(" ").map((word, index) => (
+          {messageContent.split(" ").map((word, index) => (
             <span
               className="word"
               key={index}
@@ -65,9 +60,10 @@ function Messages({
         ) : (
           <div
             className="messageFunctions tutorF"
-            onClick={() => handleTutorMessageClick(messageContent[0])}
+            onClick={() => handleTutorMessageClick(messageContent)}
           >
-            <button className="functionDesc">Translate message</button>
+              <button className="functionDesc">Translate message</button>
+              {messageTranslation && <div className="messageTranslation">{ messageTranslation }</div>}
           </div>
         )}
       </div>
