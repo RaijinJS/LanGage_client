@@ -48,7 +48,7 @@ function Messages({ message, setReply}) {
           ))}
         </p>
         {message.role === "user" ?
-        <div className='messageFunctions userF' onClick={handleUserMessageClick()}><button className='functionDesc'>See feedback</button></div> :
+        <div className='messageFunctions userF' onClick={handleUserMessageClick()}><button className='functionDesc'>Feedback</button></div> :
         <div className='messageFunctions tutorF' onClick={() => handleTutorMessageClick(messageContent[0])}><button className='functionDesc'>Translate message</button></div>}
       </div>
 

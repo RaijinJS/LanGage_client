@@ -41,3 +41,7 @@
     margin-bottom: 10%;
     border: none;
 }
+
+.currentConvo {
+    text-decoration: underline;
+}

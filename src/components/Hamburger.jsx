@@ -23,11 +23,16 @@ function Hamburger({ conversation, setConversation, conversationList, setConvers
             </button>
           </li>
         {conversationList.map((item) => {
-          return <li className="hamListItem"  key={item}>
-            <button className="ConvoButton" onClick={() => handleClick(item)}>
-              Chat {item}
-            </button>
-          </li>
+          return (
+            <li className="hamListItem" key={item}>
+              <button
+                className={item == conversation ? "ConvoButton currentConvo" : "ConvoButton"}
+                onClick={() => handleClick(item)}
+              >
+                Chat {item}
+              </button>
+            </li>
+          );
         })}
       </ul>
     </div>
