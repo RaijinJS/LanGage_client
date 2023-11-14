@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# LanGage - Solo Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+AI-powered conversation practice app for language learners (Spanish)
 
-## Available Scripts
+## Description:
 
-In the project directory, you can run:
+LanGage uses the GPT API to provide language learners with the
+opportunity to overcome the most critical issue with modern language learning
+techniques, a lack of options to practice conversational output. The only way
+to effectively level-up your output skills is to engage them. LanGage takes the
+awkwardness out of making mistakes with tutors, language exchange partners, friends,
+etc. What’s more, besides costly tutors, natives generally don’t have the knowledge
+or will to efficiently provide live feedback. With LanGage, learners have a
+safe environment to practice free-flowing conversation on-demand, but why not
+just use ChatGPT? LanGage’s UI is optimized to make learning painless. On top
+of a live feedback panel, clicking on previously sent user messages will
+display feedback for the given message, while clicking on a message (sent by the
+app) or word in the conversation will pop-up translations. Cast your worries
+and fears aside and improve your conversational prowess today!
 
-### `npm start`
+## Tech stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Front End:**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React
 
-### `npm test`
+**Back End:**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Server: Express (for community and documentation),
 
-### `npm run build`
+- Database: MongoDB with Mongoose (for flexibility and speed)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Data sources
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **OpenAI**: GPT 3.5 turbo / 4 turbo API via node dependency
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **DeepL**: Deepl Translation API via node via node dependency
 
-### `npm run eject`
+## Demo Screenshots:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Start a new conversation - The LanGage mascot quietly reads his book while waiting.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![1.png](C:\Users\chris\Documents\Software%20Development\Codeworks\Senior%20Projects\Solo\langage_client\Screenshots\1.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Write a message to receive a reply and feedback, the LanGage mascot points to the board to bring the user's attention towards his feedback:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![2.png](C:\Users\chris\Documents\Software%20Development\Codeworks\Senior%20Projects\Solo\langage_client\Screenshots\2.png)
 
-## Learn More
+If there are no mistakes in the user input, LanGage will provide encouragement:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![3.png](C:\Users\chris\Documents\Software%20Development\Codeworks\Senior%20Projects\Solo\langage_client\Screenshots\3.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+After a user message is sent, there can be a minor delay due to the speed of the GPT API. During this time, the user input field is disabled and a "Please wait..." message replaces the type here placeholder. At the same time, the LanGage mascot seems to be deep in thought reading the user's message....
 
-### Code Splitting
+![4.png](C:\Users\chris\Documents\Software%20Development\Codeworks\Senior%20Projects\Solo\langage_client\Screenshots\4.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The user may want to start a new conversation or revisit a previous one, clicking the hamburger menu in the navigation bar will reveal previous conversations as well as the option to start a new one.
 
-### Analyzing the Bundle Size
+![5.png](C:\Users\chris\Documents\Software%20Development\Codeworks\Senior%20Projects\Solo\langage_client\Screenshots\5.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+When the user opens up an old conversation with a pending reply from LanGage, the LanGage mascot will point to a letter to indicate he's waiting for a reply.
 
-### Making a Progressive Web App
+![6.png](C:\Users\chris\Documents\Software%20Development\Codeworks\Senior%20Projects\Solo\langage_client\Screenshots\6.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Want to see feedback on an older message? Hovering over your message will reveal a feedback button, clicking it will replace the content in the feedback chalkboard with the relevant feedback.
 
-### Advanced Configuration
+![7.png](C:\Users\chris\Documents\Software%20Development\Codeworks\Senior%20Projects\Solo\langage_client\Screenshots\7.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Not sure what the response from LanGage means? Or just not familiar with a specifc word? Hovering over a message will reveal a translate button, while clicking on a word will open up a pop-up with a translation by DeepL.
 
-### Deployment
+![8.png](C:\Users\chris\Documents\Software%20Development\Codeworks\Senior%20Projects\Solo\langage_client\Screenshots\8.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+![9.png](C:\Users\chris\Documents\Software%20Development\Codeworks\Senior%20Projects\Solo\langage_client\Screenshots\9.png)
 
-### `npm run build` fails to minify
+![10.png](C:\Users\chris\Documents\Software%20Development\Codeworks\Senior%20Projects\Solo\langage_client\Screenshots\10.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+LanGage is responsive!
+
+![11.png](C:\Users\chris\Documents\Software%20Development\Codeworks\Senior%20Projects\Solo\langage_client\Screenshots\11.png)
+
+![12.png](C:\Users\chris\Documents\Software%20Development\Codeworks\Senior%20Projects\Solo\langage_client\Screenshots\12.png)
+
+![13.png](C:\Users\chris\Documents\Software%20Development\Codeworks\Senior%20Projects\Solo\langage_client\Screenshots\13.png)
