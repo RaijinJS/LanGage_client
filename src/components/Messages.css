@@ -48,8 +48,8 @@
 
 @media screen and (max-width: 500px) {
   .translationPopUp {
-  position: fixed;
-  left: 1%;
+    position: fixed;
+    left: 1%;
   }
 }
 
@@ -61,12 +61,12 @@
   transition: max-height 0.5s ease 0.5s;
 }
 
-.message:hover>.messageFunctions {
+.message:hover > .messageFunctions {
   max-width: none;
   max-height: 1000em;
 }
 
-.message:hover>.messageContent {
+.message:hover > .messageContent {
   transition: margin 0.5s ease 0.5s;
   margin-bottom: 0.5em;
 }

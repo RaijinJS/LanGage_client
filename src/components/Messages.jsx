@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
-import { splitReply } from '../util.js';
-import { getWordTranslation } from '../apiService.js';
-import Popup from 'reactjs-popup';
+import React, { useState } from "react";
+import { splitReply } from "../util.js";
+import { getWordTranslation } from "../apiService.js";
+import Popup from "reactjs-popup";
 
-function Messages({
-  message,
-  handleUserMessageClick }) {
-
+function Messages({ message, handleUserMessageClick }) {
   const [selectedText, setSelectedText] = useState(null);
   const [textTranslation, setTextTranslation] = useState(null);
   const messageContent = splitReply(message.content)[0];
@@ -75,7 +72,7 @@ function Messages({
           <h2 className="translationTitle">
             {selectedText !== null && selectedText.length > 10
               ? "Translation"
-              : "Translation of "+selectedText}
+              : "Translation of " + selectedText}
           </h2>
           <p className="translatedText">{textTranslation}</p>
           <div className="closeButtonContainer">

@@ -1,5 +1,4 @@
-const url = 'http://localhost:3001'
-
+const url = "http://localhost:3001";
 
 async function getPrevMessages(conversationID) {
   try {
@@ -16,7 +15,7 @@ async function gptReply(userInput) {
     const response = await fetch(`${url}/messages/gpt`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(userInput)
+      body: JSON.stringify(userInput),
     });
     const reply = await response.json();
     return reply;
@@ -30,7 +29,7 @@ async function postUserMessage(userInput) {
     const response = await fetch(`${url}/messages/user`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(userInput)
+      body: JSON.stringify(userInput),
     });
     const reply = await response.json();
     return reply;
@@ -51,11 +50,11 @@ async function getConvoList() {
 
 async function getWordTranslation(wordToTranslate) {
   try {
-    const wordObj = {word: wordToTranslate}
+    const wordObj = { word: wordToTranslate };
     const translation = await fetch(`${url}/translate/word`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(wordObj)
+      body: JSON.stringify(wordObj),
     });
     const reply = await translation.json();
     return reply;
@@ -64,4 +63,10 @@ async function getWordTranslation(wordToTranslate) {
   }
 }
 
-export { gptReply, getPrevMessages, postUserMessage, getConvoList, getWordTranslation }
+export {
+  gptReply,
+  getPrevMessages,
+  postUserMessage,
+  getConvoList,
+  getWordTranslation,
+};

@@ -1,9 +1,14 @@
-import { ReactComponent as Logo } from '../assets/Logo no slogan.svg';
-import Hamburger from './Hamburger.jsx';
-import Popup from 'reactjs-popup';
-import { useState } from 'react';
+import { ReactComponent as Logo } from "../assets/Logo no slogan.svg";
+import Hamburger from "./Hamburger.jsx";
+import Popup from "reactjs-popup";
+import { useState } from "react";
 
-function Nav({ conversation, setConversation, conversationList, setConversationList }) {
+function Nav({
+  conversation,
+  setConversation,
+  conversationList,
+  setConversationList,
+}) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleOpen = () => {
@@ -17,16 +22,14 @@ function Nav({ conversation, setConversation, conversationList, setConversationL
   return (
     <div className="Nav">
       <div className="logoContainer">
-        <Logo className='logo' />
+        <Logo className="logo" />
       </div>
 
       <Popup
-        className='popUpComponent'
+        className="popUpComponent"
         trigger={
-          <button
-            className='hamburgerButton'
-          >
-            <div className={`hamburger ${isMenuOpen ? 'active' : ''}`}>
+          <button className="hamburgerButton">
+            <div className={`hamburger ${isMenuOpen ? "active" : ""}`}>
               <span className="bar"></span>
               <span className="bar"></span>
               <span className="bar"></span>
@@ -37,11 +40,18 @@ function Nav({ conversation, setConversation, conversationList, setConversationL
         onClose={handleClose}
         position="bottom center"
       >
-        {close => (
-          <div className='popUpMenu'>
-            <Hamburger conversation={conversation} setConversation={setConversation} conversationList={conversationList} setConversationList={setConversationList} />
-            <div className='closeButtonContainer'>
-              <button className='closeButton' onClick= {() => close()}>Close</button>
+        {(close) => (
+          <div className="popUpMenu">
+            <Hamburger
+              conversation={conversation}
+              setConversation={setConversation}
+              conversationList={conversationList}
+              setConversationList={setConversationList}
+            />
+            <div className="closeButtonContainer">
+              <button className="closeButton" onClick={() => close()}>
+                Close
+              </button>
             </div>
           </div>
         )}
