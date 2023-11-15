@@ -46,7 +46,6 @@ function MessagePanel({
       const response = await gptReply(newMessage);
       if (response.content.includes("(")) {
         const feedback = splitReply(response.content)[1];
-        console.log(feedback);
         setFeedback(feedback);
       }
       setMessages((prevMessages) => [...prevMessages, response]);
