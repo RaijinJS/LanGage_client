@@ -32,22 +32,26 @@ function Hamburger({
             Start New Conversation
           </button>
         </li>
-        {conversationList.map((item) => {
-          return (
-            <li className="hamListItem" key={item}>
-              <button
-                className={
-                  item == conversation
-                    ? "ConvoButton currentConvo"
-                    : "ConvoButton"
-                }
-                onClick={() => handleClick(item)}
-              >
-                Chat {item}
-              </button>
-            </li>
-          );
-        })}
+        {conversationList !== undefined ? (
+          conversationList.map((item) => {
+            return (
+              <li className="hamListItem" key={item}>
+                <button
+                  className={
+                    item == conversation
+                      ? "ConvoButton currentConvo"
+                      : "ConvoButton"
+                  }
+                  onClick={() => handleClick(item)}
+                >
+                  Chat {item}
+                </button>
+              </li>
+            );
+          })
+        ) : (
+          <h3> You currently have no conversations.</h3>
+        )}
       </ul>
     </div>
   );

@@ -1,7 +1,6 @@
 import { ReactComponent as RobotPoint } from "../assets/pointing-robot.svg";
 import { ReactComponent as RobotBook } from "../assets/book-robot.svg";
 import { ReactComponent as RobotThink } from "../assets/thinking-robot.svg";
-import { ReactComponent as RobotHappy } from "../assets/happy-robot.svg";
 import { ReactComponent as RobotLetter } from "../assets/letter-robot.svg";
 import { useState, useEffect } from "react";
 import React from "react";
@@ -13,19 +12,26 @@ function FeedbackPanel({
   conversation,
   conversationList,
 }) {
-  const [mascot, setMascot] = useState(RobotHappy);
+  const [mascot, setMascot] = useState(RobotBook);
+
+   const determineMascot = () => {
+     if (
+       conversation === conversationList.length + 1 &&
+       messages.length === 0
+     ) {
+       return RobotBook;
+     } else if (feedback[0].length === 0) {
+       return RobotLetter;
+     }
+     return RobotPoint;
+   };
 
   useEffect(() => {
-    if (conversation === conversationList.length + 1 && messages.length === 0) {
-      setMascot(() => RobotBook);
-    } else if (feedback[0].length === 0) {
-      setMascot(RobotLetter);
-    } else if (feedback[0].length !== 0) {
-      setMascot(RobotPoint);
-    } else {
-      setMascot(() => RobotHappy);
+    const newMascot = determineMascot();
+    if (mascot !== newMascot) {
+      setMascot(newMascot);
     }
-  }, [mascot, conversation, messages]);
+  }, [conversation, messages, feedback, mascot]);
 
   return (
     <div className="FeedbackPanel">
