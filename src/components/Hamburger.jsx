@@ -16,7 +16,9 @@ function Hamburger({
   }, [conversation]);
 
   function handleClick(listNum) {
-    setConversation(() => listNum);
+    if (listNum !== 0 && listNum !== undefined) {
+      setConversation(() => listNum+1);
+    }
   }
 
   return (
@@ -27,7 +29,7 @@ function Hamburger({
           <button
             id="newConvo"
             className="ConvoButton"
-            onClick={() => handleClick(conversationList.length + 1)}
+            onClick={() => handleClick(conversationList.length)}
           >
             Start New Conversation
           </button>
